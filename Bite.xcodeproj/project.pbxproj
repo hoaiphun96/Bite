@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EA7CF7F92040792C0007763E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF7F82040792C0007763E /* AppDelegate.swift */; };
-		EA7CF7FB2040792C0007763E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF7FA2040792C0007763E /* ViewController.swift */; };
+		EA7CF7FB2040792C0007763E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF7FA2040792C0007763E /* SearchViewController.swift */; };
 		EA7CF7FE2040792C0007763E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA7CF7FC2040792C0007763E /* Main.storyboard */; };
 		EA7CF8012040792C0007763E /* Bite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF7FF2040792C0007763E /* Bite.xcdatamodeld */; };
 		EA7CF8032040792C0007763E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA7CF8022040792C0007763E /* Assets.xcassets */; };
@@ -18,7 +18,7 @@
 /* Begin PBXFileReference section */
 		EA7CF7F52040792C0007763E /* Bite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA7CF7F82040792C0007763E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EA7CF7FA2040792C0007763E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EA7CF7FA2040792C0007763E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		EA7CF7FD2040792C0007763E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EA7CF8002040792C0007763E /* Bite.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bite.xcdatamodel; sourceTree = "<group>"; };
 		EA7CF8022040792C0007763E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				EA7CF7F82040792C0007763E /* AppDelegate.swift */,
-				EA7CF7FA2040792C0007763E /* ViewController.swift */,
+				EA7CF7FA2040792C0007763E /* SearchViewController.swift */,
 				EA7CF7FC2040792C0007763E /* Main.storyboard */,
 				EA7CF8022040792C0007763E /* Assets.xcassets */,
 				EA7CF8042040792C0007763E /* LaunchScreen.storyboard */,
@@ -139,7 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA7CF7FB2040792C0007763E /* ViewController.swift in Sources */,
+				EA7CF7FB2040792C0007763E /* SearchViewController.swift in Sources */,
 				EA7CF8012040792C0007763E /* Bite.xcdatamodeld in Sources */,
 				EA7CF7F92040792C0007763E /* AppDelegate.swift in Sources */,
 			);
