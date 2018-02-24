@@ -8,22 +8,49 @@
 
 /* Begin PBXBuildFile section */
 		EA7CF7F92040792C0007763E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF7F82040792C0007763E /* AppDelegate.swift */; };
-		EA7CF7FB2040792C0007763E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF7FA2040792C0007763E /* SearchViewController.swift */; };
 		EA7CF7FE2040792C0007763E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA7CF7FC2040792C0007763E /* Main.storyboard */; };
 		EA7CF8012040792C0007763E /* Bite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF7FF2040792C0007763E /* Bite.xcdatamodeld */; };
 		EA7CF8032040792C0007763E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA7CF8022040792C0007763E /* Assets.xcassets */; };
 		EA7CF8062040792C0007763E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA7CF8042040792C0007763E /* LaunchScreen.storyboard */; };
+		EA7CF81220407D400007763E /* ToEatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF81120407D400007763E /* ToEatTableViewController.swift */; };
+		EA7CF81420407D510007763E /* ToAvoidTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF81320407D510007763E /* ToAvoidTableViewController.swift */; };
+		EA7CF81620407D8F0007763E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF81520407D8F0007763E /* DetailViewController.swift */; };
+		EA7CF81A20407DC70007763E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF81920407DC70007763E /* Constants.swift */; };
+		EA7CF81E204083870007763E /* SearchFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF81D204083870007763E /* SearchFood.swift */; };
+		EA7CF8202040A9760007763E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF81F2040A9760007763E /* SearchViewController.swift */; };
+		EA7CF83520410BD40007763E /* ToAvoid+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF82F20410BD40007763E /* ToAvoid+CoreDataClass.swift */; };
+		EA7CF83620410BD40007763E /* ToAvoid+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF83020410BD40007763E /* ToAvoid+CoreDataProperties.swift */; };
+		EA7CF83720410BD40007763E /* ToEat+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF83120410BD40007763E /* ToEat+CoreDataClass.swift */; };
+		EA7CF83820410BD40007763E /* ToEat+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF83220410BD40007763E /* ToEat+CoreDataProperties.swift */; };
+		EA7CF83920410BD40007763E /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF83320410BD40007763E /* Item+CoreDataClass.swift */; };
+		EA7CF83A20410BD40007763E /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF83420410BD40007763E /* Item+CoreDataProperties.swift */; };
+		EA7CF83C204111F40007763E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF83B204111F40007763E /* CoreDataStack.swift */; };
+		EA7CF83F204116590007763E /* ItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF83E204116590007763E /* ItemViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EA7CF7F52040792C0007763E /* Bite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA7CF7F82040792C0007763E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EA7CF7FA2040792C0007763E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		EA7CF7FD2040792C0007763E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EA7CF8002040792C0007763E /* Bite.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bite.xcdatamodel; sourceTree = "<group>"; };
 		EA7CF8022040792C0007763E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA7CF8052040792C0007763E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA7CF8072040792C0007763E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA7CF81120407D400007763E /* ToEatTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToEatTableViewController.swift; sourceTree = "<group>"; };
+		EA7CF81320407D510007763E /* ToAvoidTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToAvoidTableViewController.swift; sourceTree = "<group>"; };
+		EA7CF81520407D8F0007763E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		EA7CF81920407DC70007763E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EA7CF81D204083870007763E /* SearchFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFood.swift; sourceTree = "<group>"; };
+		EA7CF81F2040A9760007763E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		EA7CF82E20410BA30007763E /* Bite 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Bite 2.xcdatamodel"; sourceTree = "<group>"; };
+		EA7CF82F20410BD40007763E /* ToAvoid+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToAvoid+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EA7CF83020410BD40007763E /* ToAvoid+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToAvoid+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EA7CF83120410BD40007763E /* ToEat+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToEat+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EA7CF83220410BD40007763E /* ToEat+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToEat+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EA7CF83320410BD40007763E /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EA7CF83420410BD40007763E /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EA7CF83B204111F40007763E /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		EA7CF83E204116590007763E /* ItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +83,11 @@
 		EA7CF7F72040792C0007763E /* Bite */ = {
 			isa = PBXGroup;
 			children = (
+				EA7CF83D2041163A0007763E /* Views */,
+				EA7CF82D204108920007763E /* CoreData */,
+				EA7CF81820407DA90007763E /* Controllers */,
+				EA7CF81720407DA20007763E /* Model */,
 				EA7CF7F82040792C0007763E /* AppDelegate.swift */,
-				EA7CF7FA2040792C0007763E /* SearchViewController.swift */,
 				EA7CF7FC2040792C0007763E /* Main.storyboard */,
 				EA7CF8022040792C0007763E /* Assets.xcassets */,
 				EA7CF8042040792C0007763E /* LaunchScreen.storyboard */,
@@ -65,6 +95,48 @@
 				EA7CF7FF2040792C0007763E /* Bite.xcdatamodeld */,
 			);
 			path = Bite;
+			sourceTree = "<group>";
+		};
+		EA7CF81720407DA20007763E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EA7CF81920407DC70007763E /* Constants.swift */,
+				EA7CF81D204083870007763E /* SearchFood.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EA7CF81820407DA90007763E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EA7CF81120407D400007763E /* ToEatTableViewController.swift */,
+				EA7CF81320407D510007763E /* ToAvoidTableViewController.swift */,
+				EA7CF81520407D8F0007763E /* DetailViewController.swift */,
+				EA7CF81F2040A9760007763E /* SearchViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EA7CF82D204108920007763E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				EA7CF82F20410BD40007763E /* ToAvoid+CoreDataClass.swift */,
+				EA7CF83020410BD40007763E /* ToAvoid+CoreDataProperties.swift */,
+				EA7CF83120410BD40007763E /* ToEat+CoreDataClass.swift */,
+				EA7CF83220410BD40007763E /* ToEat+CoreDataProperties.swift */,
+				EA7CF83320410BD40007763E /* Item+CoreDataClass.swift */,
+				EA7CF83420410BD40007763E /* Item+CoreDataProperties.swift */,
+				EA7CF83B204111F40007763E /* CoreDataStack.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		EA7CF83D2041163A0007763E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EA7CF83E204116590007763E /* ItemViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +211,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA7CF7FB2040792C0007763E /* SearchViewController.swift in Sources */,
+				EA7CF83C204111F40007763E /* CoreDataStack.swift in Sources */,
+				EA7CF81E204083870007763E /* SearchFood.swift in Sources */,
+				EA7CF83520410BD40007763E /* ToAvoid+CoreDataClass.swift in Sources */,
+				EA7CF81220407D400007763E /* ToEatTableViewController.swift in Sources */,
+				EA7CF8202040A9760007763E /* SearchViewController.swift in Sources */,
+				EA7CF81420407D510007763E /* ToAvoidTableViewController.swift in Sources */,
+				EA7CF83620410BD40007763E /* ToAvoid+CoreDataProperties.swift in Sources */,
+				EA7CF83F204116590007763E /* ItemViewCell.swift in Sources */,
+				EA7CF81620407D8F0007763E /* DetailViewController.swift in Sources */,
+				EA7CF81A20407DC70007763E /* Constants.swift in Sources */,
+				EA7CF83920410BD40007763E /* Item+CoreDataClass.swift in Sources */,
+				EA7CF83A20410BD40007763E /* Item+CoreDataProperties.swift in Sources */,
+				EA7CF83820410BD40007763E /* ToEat+CoreDataProperties.swift in Sources */,
+				EA7CF83720410BD40007763E /* ToEat+CoreDataClass.swift in Sources */,
 				EA7CF8012040792C0007763E /* Bite.xcdatamodeld in Sources */,
 				EA7CF7F92040792C0007763E /* AppDelegate.swift in Sources */,
 			);
@@ -331,9 +416,10 @@
 		EA7CF7FF2040792C0007763E /* Bite.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				EA7CF82E20410BA30007763E /* Bite 2.xcdatamodel */,
 				EA7CF8002040792C0007763E /* Bite.xcdatamodel */,
 			);
-			currentVersion = EA7CF8002040792C0007763E /* Bite.xcdatamodel */;
+			currentVersion = EA7CF82E20410BA30007763E /* Bite 2.xcdatamodel */;
 			path = Bite.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

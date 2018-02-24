@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-503" y="-369"/>
         </scene>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Bite" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="Bite" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,17 +45,71 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Not-ud-Zn6"/>
                                 </connections>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NF0-gw-TDH" userLabel="Food Items View">
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="itemCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="156" id="UZP-JD-cmn" userLabel="Food Item View Cell" customClass="ItemViewCell" customModule="Bite" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="156"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UZP-JD-cmn" id="aXG-YX-a6l">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="155.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G7H-DN-KOy" userLabel="Item Image View">
+                                                    <rect key="frame" x="15" y="15" width="128" height="126"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcB-Gq-Qz1" userLabel="Info">
+                                                    <rect key="frame" x="147" y="15" width="213" height="126"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ZcB-Gq-Qz1" firstAttribute="leading" secondItem="G7H-DN-KOy" secondAttribute="trailing" constant="4" id="1xJ-8N-m4w"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ZcB-Gq-Qz1" secondAttribute="bottom" constant="4" id="BlC-NW-CPd"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="G7H-DN-KOy" secondAttribute="trailing" constant="217" id="GoE-F7-Zop"/>
+                                                <constraint firstItem="ZcB-Gq-Qz1" firstAttribute="top" secondItem="aXG-YX-a6l" secondAttribute="topMargin" constant="4" id="NGe-Cy-mzV"/>
+                                                <constraint firstItem="G7H-DN-KOy" firstAttribute="top" secondItem="aXG-YX-a6l" secondAttribute="topMargin" constant="4" id="W6l-pq-NE2"/>
+                                                <constraint firstItem="G7H-DN-KOy" firstAttribute="leading" secondItem="aXG-YX-a6l" secondAttribute="leadingMargin" id="iU6-mr-xtR"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="G7H-DN-KOy" secondAttribute="bottom" constant="4" id="lH8-Y5-qYs"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZcB-Gq-Qz1" secondAttribute="trailing" id="lf9-9l-24l"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="itemCell"/>
+                                        <connections>
+                                            <outlet property="itemImageView" destination="G7H-DN-KOy" id="KXf-g2-aqr"/>
+                                            <outlet property="itemLabel" destination="ZcB-Gq-Qz1" id="k94-Fe-w7W"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="tdA-m0-Ufh"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="r6A-vZ-dcl"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NF0-gw-TDH" secondAttribute="bottom" id="4iI-lR-kaf"/>
+                            <constraint firstItem="NF0-gw-TDH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6Cx-LM-wfy"/>
                             <constraint firstItem="gaN-Wc-prd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7jH-CI-Lyd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NF0-gw-TDH" secondAttribute="trailing" id="Bmo-7A-JAl"/>
                             <constraint firstItem="gaN-Wc-prd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="URA-vu-tM1"/>
                             <constraint firstItem="gaN-Wc-prd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dMA-3r-YWz"/>
+                            <constraint firstItem="NF0-gw-TDH" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="dqj-U5-UlY"/>
+                            <constraint firstItem="NF0-gw-TDH" firstAttribute="top" secondItem="gaN-Wc-prd" secondAttribute="bottom" id="gbM-tX-Y0T"/>
+                            <constraint firstItem="NF0-gw-TDH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hNi-2F-hSa"/>
+                            <constraint firstItem="NF0-gw-TDH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ijK-Vt-8ID"/>
+                            <constraint firstItem="NF0-gw-TDH" firstAttribute="top" secondItem="gaN-Wc-prd" secondAttribute="bottom" id="zc2-3g-Ewq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="VIv-2d-fe7"/>
                     <connections>
+                        <outlet property="itemTableView" destination="NF0-gw-TDH" id="fhv-tX-gcm"/>
+                        <outlet property="searchBar" destination="gaN-Wc-prd" id="MtV-8W-XsR"/>
                         <outlet property="searchDisplayController" destination="uR0-dn-Po4" id="RZs-De-7hg"/>
                     </connections>
                 </viewController>
@@ -62,14 +117,13 @@
                 <searchDisplayController id="uR0-dn-Po4">
                     <connections>
                         <outlet property="delegate" destination="BYZ-38-t0r" id="skT-tw-HYh"/>
-                        <outlet property="searchBar" destination="gaN-Wc-prd" id="Vcw-7Z-oYN"/>
                         <outlet property="searchContentsController" destination="BYZ-38-t0r" id="o0i-rV-tdU"/>
                         <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="XQs-eA-SIu"/>
                         <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="kCC-6T-xvr"/>
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="391" y="-369"/>
+            <point key="canvasLocation" x="389.60000000000002" y="-369.26536731634184"/>
         </scene>
         <!--To avoid-->
         <scene sceneID="ayM-F9-EnJ">
