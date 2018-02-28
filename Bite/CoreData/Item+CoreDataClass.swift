@@ -22,9 +22,7 @@ public class Item: NSManagedObject {
             self.image_url = image_url
             self.serving_unit = serving_unit
             self.serving_quantity = serving_quantity
-            self.toEat = false
-            self.toAvoid = false
-            
+            print("just created an entity")
         } else {
             fatalError("Unable to find Entity name")
         }
@@ -47,4 +45,5 @@ public class Item: NSManagedObject {
         return task
     }
 }
+
 

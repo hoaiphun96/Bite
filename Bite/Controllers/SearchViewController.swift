@@ -18,7 +18,7 @@ class SearchViewController: UIViewController {
     
     // the data for the table
     var items = [Constants.TempItem]()
-    
+    var selectedItem: Constants.TempItem?
     // the delegate will typically be a view controller, waiting for the Movie Picker to return an movie
     var delegate: SearchViewControllerDelegate?
     
@@ -38,6 +38,9 @@ class SearchViewController: UIViewController {
     }
     // MARK: Dismissals
     
+    @IBAction func openLogs(_ sender: Any) {
+        performSegue(withIdentifier: "logSegue", sender: self)
+    }
     @objc func handleSingleTap(_ recognizer: UITapGestureRecognizer) {
         view.endEditing(true)
     }
@@ -99,7 +102,7 @@ extension SearchViewController: UISearchBarDelegate {
 }
 
 
-// MARK: - SearcjViewController: UITableViewDelegate, UITableViewDataSource
+// MARK: - SearchViewController: UITableViewDelegate, UITableViewDataSource
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -141,12 +144,23 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
-    /*
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let movie = movies[(indexPath as NSIndexPath).row]
-        let controller = storyboard!.instantiateViewController(withIdentifier: "MovieDetailViewController") as! MovieDetailViewController
-        controller.movie = movie
-        navigationController!.pushViewController(controller, animated: true)
-    } */
+        selectedItem = items[(indexPath as NSIndexPath).row]
+        performSegue(withIdentifier: "detailSegue", sender: self)
+    }
+    
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier! == "detailSegue" {
+            
+            if let detailVC = segue.destination as? DetailViewController {
+                detailVC.item = selectedItem
+            }
+        }
+    
+    }
+    
 }
 

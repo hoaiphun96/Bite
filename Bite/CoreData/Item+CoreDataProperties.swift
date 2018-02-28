@@ -2,7 +2,7 @@
 //  Item+CoreDataProperties.swift
 //  Bite
 //
-//  Created by Jamie Nguyen on 2/23/18.
+//  Created by Jamie Nguyen on 2/28/18.
 //  Copyright © 2018 Jamie Nguyen. All rights reserved.
 //
 //
@@ -25,6 +25,7 @@ extension Item {
     @NSManaged public var serving_unit: String?
     @NSManaged public var toAvoid: Bool
     @NSManaged public var toEat: Bool
+    @NSManaged public var image: NSData?
     @NSManaged public var avoid: ToAvoid?
     @NSManaged public var eat: ToEat?
 

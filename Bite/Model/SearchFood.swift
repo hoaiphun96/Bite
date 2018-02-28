@@ -28,7 +28,7 @@ public class SearchFood {
         request.addValue(Constants.NutritionixParameterValues.ApplicationID, forHTTPHeaderField: "x-app-id")
         request.addValue(Constants.NutritionixParameterValues.APIKey, forHTTPHeaderField: "x-app-key")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        print("REQUEST", request)
+
         // create network request
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             
@@ -53,7 +53,7 @@ public class SearchFood {
                     completionHandlerForGetFood(tempItems, nil)
                    
                 } else {
-                    print("else")
+                    completionHandlerForGetFood(nil, "Cannot find key branded in the dictionary")
                 }
             }
         }
