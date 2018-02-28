@@ -7,29 +7,34 @@
 //
 
 import UIKit
+import CoreData
 
 class DetailViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    @IBOutlet weak var addToToAvoidButton: UIButton!
+    @IBOutlet weak var addToToEatButton: UIButton!
+    @IBOutlet weak var itemInfoLabel: UILabel!
+    @IBOutlet weak var itemImageView: UIImageView!
+    var item: Constants.TempItem!
+    let delegate = UIApplication.shared.delegate as! AppDelegate
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func addToToEat(_ sender: Any) {
+        let item = Item(itemName: self.item.name, brandName: self.item.brand_name, calories: self.item.calories, image_url: self.item.image_url, serving_quantity: self.item.serving_quantity, serving_unit: self.item.serving_unit, context: delegate.stack.context)
+        item.toAvoid = false
+        item.toEat = true
+        print("just added to eat")
+        delegate.stack.save()
+        print("number of item in database \(delegate.stack.context.insertedObjects)")
     }
-    */
+    
+    @IBAction func addToToAvoid(_ sender: Any) {
+        let item = Item(itemName: self.item.name, brandName: self.item.brand_name, calories: self.item.calories, image_url: self.item.image_url, serving_quantity: self.item.serving_quantity, serving_unit: self.item.serving_unit, context: delegate.stack.context)
+        item.toAvoid = true
+        item.toEat = false
+        print("just added to avoid")
+        delegate.stack.save()
+    }
+
 
 }
