@@ -14,9 +14,10 @@
         <scene sceneID="7Sr-ep-Xvz">
             <objects>
                 <navigationController id="7kS-Kl-5fr" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="icons8-back-to-64" backIndicatorTransitionMaskImage="icons8-back-to-64" id="ecC-eE-zgx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="icons8-back-50" backIndicatorTransitionMaskImage="icons8-back-50" id="ecC-eE-zgx">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="0qk-1U-zXI"/>
@@ -293,8 +294,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UZe-GI-d1f"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="icons8-cancel-64" selectedImage="icons8-cancel-64" id="MxS-TE-xrp">
-                        <color key="badgeColor" red="1" green="0.52120530610000004" blue="1" alpha="0.95700449489999995" colorSpace="custom" customColorSpace="sRGB"/>
+                    <tabBarItem key="tabBarItem" title="" image="icons8-unavailable-64" selectedImage="icons8-unavailable-64" id="MxS-TE-xrp">
+                        <inset key="imageInsets" minX="5" minY="6" maxX="5" maxY="-6"/>
                     </tabBarItem>
                     <connections>
                         <outlet property="toAvoidTableView" destination="BST-X9-yp2" id="u3m-T4-rr4"/>
@@ -383,7 +384,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mtv-xi-3m7"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="icons8-food-64" selectedImage="icons8-food-64" id="VKo-FN-Q45"/>
+                    <tabBarItem key="tabBarItem" title="" image="icons8-food-and-wine-50" selectedImage="icons8-food-and-wine-50" id="VKo-FN-Q45">
+                        <inset key="imageInsets" minX="5" minY="6" maxX="5" maxY="-6"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="toEatTableView" destination="8Zs-8M-e2u" id="E0M-Bz-JnA"/>
                     </connections>
@@ -400,6 +403,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="z1P-dt-cyB" kind="relationship" relationship="viewControllers" id="u1a-JV-ybU"/>
@@ -412,8 +416,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icons8-back-to-64" width="64" height="64"/>
-        <image name="icons8-cancel-64" width="64" height="64"/>
-        <image name="icons8-food-64" width="64" height="64"/>
+        <image name="icons8-back-50" width="50" height="50"/>
+        <image name="icons8-food-and-wine-50" width="50" height="50"/>
+        <image name="icons8-unavailable-64" width="64" height="64"/>
     </resources>
 </document>

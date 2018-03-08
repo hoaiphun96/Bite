@@ -83,7 +83,9 @@ class ToAvoidTableViewController: UIViewController, UITableViewDelegate, UITable
         } else { //else download new image
             let ai = ActivityIndicator()
             cell.itemImageView.image = nil
-            ai.showLoader(cell.imageView!)
+            DispatchQueue.main.sync {
+                ai.showLoader(cell.imageView!)
+            }
             let _ = item.downloadImage(imagePath: item.image_url!, completionHandler: { (data, errorString) in
                 if errorString == nil {
                     item.image = data! as NSData

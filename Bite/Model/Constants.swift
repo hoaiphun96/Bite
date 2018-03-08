@@ -5,6 +5,7 @@
 //  Created by Jamie Nguyen on 2/23/18.
 //  Copyright © 2018 Jamie Nguyen. All rights reserved.
 //
+import UIKit
 struct Constants {
     
     // MARK: Nutritionix
@@ -47,10 +48,11 @@ struct Constants {
         let image_url: String?
         let serving_unit: String?
         let serving_quantity: String?
+        var image: UIImage?
         
         // MARK: Initializers
         
-        // construct a TMDBMovie from a dictionary
+        // construct a TempItem from a dictionary
         init(dictionary: [String:AnyObject]) {
             name = dictionary["food_name"] as! String
             brand_name = dictionary["brand_name"] as! String
@@ -60,7 +62,10 @@ struct Constants {
             image_url = pd["thumb"] as? String
             serving_unit = dictionary["serving_unit"] as? String
             serving_quantity = dictionary["serving_qty"] as? String
+            image = nil
         }
+        
+      
         
         static func itemsFromResults(_ results: [[String:AnyObject]]) -> [TempItem] {
             var items = [TempItem]()

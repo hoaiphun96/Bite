@@ -118,7 +118,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             let _ = downloadImage(imagePath: url) { (data, errorString) in
                 if errorString == nil {
                     DispatchQueue.main.async {
-                        cell.itemImageView.image = UIImage(data: data!)
+                        self.items[(indexPath as NSIndexPath).row].image = UIImage(data: data!)
+                        cell.itemImageView.image = item.image
                         cell.itemImageView.layer.cornerRadius = cell.cellView.frame.height / 2
                     }
                 }
@@ -152,6 +153,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedItem = items[(indexPath as NSIndexPath).row]
+
         performSegue(withIdentifier: "detailSegue", sender: self)
     }
     
@@ -162,6 +164,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             
             if let detailVC = segue.destination as? DetailViewController {
                 detailVC.item = selectedItem
+                
             }
         }
     

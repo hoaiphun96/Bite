@@ -77,20 +77,19 @@ class ToEatTableViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
+    
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = fetchedResultsController?.object(at: indexPath) as! Item
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "toEatCell", for: indexPath) as! ToEatCell
+  
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! ItemViewCell
         cell.cellView.layer.cornerRadius = cell.cellView.frame.height / 2
         // Configure the cell...
         if item.image != nil  {
             let p = UIImage(data: item.image! as Data)
-            //cell.toEatImageView.image = p
             cell.itemImageView.image = p
             
         } else { //else download new image
             let ai = ActivityIndicator()
-            //cell.toEatImageView.image = nil
             cell.itemImageView.image = nil
             ai.showLoader(cell.imageView!)
             let _ = item.downloadImage(imagePath: item.image_url!, completionHandler: { (data, errorString) in
@@ -99,17 +98,15 @@ class ToEatTableViewController: UIViewController, UITableViewDelegate, UITableVi
                     self.delegate.stack.save()
                     DispatchQueue.main.async {
                         ai.removeLoader()
-                        //cell.toEatImageView.image = UIImage(data: data!)
                         cell.itemImageView.image = UIImage(data: data!)
-                        
+                         cell.itemImageView.layer.cornerRadius = cell.cellView.frame.height / 2
                     }
                 } else {
                     ai.removeLoader()
                 }
             })
         }
-        //cell.label.text = item.name
-        cell.itemImageView.layer.cornerRadius = cell.cellView.frame.height / 2
+       
         cell.itemLabel.text = item.name
         return cell
     }
