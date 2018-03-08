@@ -30,8 +30,8 @@ class ToAvoidTableViewController: UIViewController, UITableViewDelegate, UITable
         let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
         fr.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
-        //let pred = NSPredicate(format: "toAvoid == %@", NSNumber(value: true))
-        //fr.predicate = pred
+        let pred = NSPredicate(format: "toAvoid == %@", NSNumber(value: true))
+        fr.predicate = pred
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: delegate.stack.context , sectionNameKeyPath: nil, cacheName: nil)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -58,7 +58,9 @@ class ToAvoidTableViewController: UIViewController, UITableViewDelegate, UITable
             return 0
         }
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let fc = fetchedResultsController {
             print("number of object \(fc.sections![section].numberOfObjects)")
@@ -72,14 +74,15 @@ class ToAvoidTableViewController: UIViewController, UITableViewDelegate, UITable
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = fetchedResultsController?.object(at: indexPath) as! Item
-        let cell = tableView.dequeueReusableCell(withIdentifier: "toAvoidCell", for: indexPath) as! ToAvoidCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! ItemViewCell
+        cell.cellView.layer.cornerRadius = cell.cellView.frame.height / 2
         // Configure the cell...
         if item.image != nil  {
             let p = UIImage(data: item.image! as Data)
-            cell.toAvoidImageView.image = p
+            cell.itemImageView.image = p
         } else { //else download new image
             let ai = ActivityIndicator()
-            cell.toAvoidImageView.image = nil
+            cell.itemImageView.image = nil
             ai.showLoader(cell.imageView!)
             let _ = item.downloadImage(imagePath: item.image_url!, completionHandler: { (data, errorString) in
                 if errorString == nil {
@@ -87,14 +90,15 @@ class ToAvoidTableViewController: UIViewController, UITableViewDelegate, UITable
                     self.delegate.stack.save()
                     DispatchQueue.main.async {
                         ai.removeLoader()
-                        cell.toAvoidImageView.image = UIImage(data: data!)
+                        cell.itemImageView.image = UIImage(data: data!)
                     }
                 } else {
                     ai.removeLoader()
                 }
             })
         }
-        cell.label.text = item.name
+        cell.itemLabel.text = item.name
+        cell.itemImageView.layer.cornerRadius = cell.cellView.frame.height / 2
         return cell
     }
 

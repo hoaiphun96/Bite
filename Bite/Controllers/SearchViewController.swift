@@ -112,18 +112,22 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let item = items[(indexPath as NSIndexPath).row]
         let cell = tableView.dequeueReusableCell(withIdentifier: CellReuseId) as! ItemViewCell
         cell.itemLabel.text = item.name
+        cell.cellView.layer.cornerRadius = cell.cellView.frame.height / 2
         if let url = item.image_url {
             let _ = downloadImage(imagePath: url) { (data, errorString) in
                 if errorString == nil {
                     DispatchQueue.main.async {
                         cell.itemImageView.image = UIImage(data: data!)
+                        cell.itemImageView.layer.cornerRadius = cell.cellView.frame.height / 2
                     }
                 }
             }
         }
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
     func downloadImage(imagePath:String, completionHandler: @escaping (_ imageData: Data?, _ errorString: String?) -> Void) -> URLSessionDataTask {
         let session = URLSession.shared
         let imgURL = NSURL(string: imagePath)
