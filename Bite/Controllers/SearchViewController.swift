@@ -35,6 +35,7 @@ class SearchViewController: UIViewController {
         tapRecognizer.numberOfTapsRequired = 1
         tapRecognizer.delegate = self
         view.addGestureRecognizer(tapRecognizer)
+        self.navigationController!.navigationBar.topItem!.title = ""
     }
     // MARK: Dismissals
     
