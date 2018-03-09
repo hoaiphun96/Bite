@@ -12,7 +12,6 @@ import CoreData
 class ToEatTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate  {
     
     @IBOutlet weak var toEatTableView: UITableView!
-    
     let delegate = UIApplication.shared.delegate as! AppDelegate
     var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>? {
         didSet {
@@ -31,16 +30,9 @@ class ToEatTableViewController: UIViewController, UITableViewDelegate, UITableVi
         let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
         print(try! delegate.stack.context.count(for: fr))
         fr.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        //let pred = NSPredicate(format: "toEat == %@", argumentArray: [true])
         let pred = NSPredicate(format: "toEat == %@", NSNumber(value: true))
         fr.predicate = pred
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: delegate.stack.context , sectionNameKeyPath: nil, cacheName: nil)
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     func executeSearch() {
@@ -64,23 +56,20 @@ class ToEatTableViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let fc = fetchedResultsController {
-            print("number of object \(fc.sections![section].numberOfObjects)")
-            return fc.sections![section].numberOfObjects
-        } else {
-            print("0")
-            return 0
-        }
-    }
-
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let fc = fetchedResultsController {
+            return fc.sections![section].numberOfObjects
+        } else {
+            return 0
+        }
+    }
+    
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = fetchedResultsController?.object(at: indexPath) as! Item
-  
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! ItemViewCell
         cell.cellView.layer.cornerRadius = cell.cellView.frame.height / 2
         // Configure the cell...
@@ -90,7 +79,7 @@ class ToEatTableViewController: UIViewController, UITableViewDelegate, UITableVi
         } else { //else download new image
             let ai = ActivityIndicator()
             cell.itemImageView.image = nil
-            ai.showLoader(cell.imageView!)
+            ai.showLoader(cell.itemImageView)
             let _ = item.downloadImage(imagePath: item.image_url!, completionHandler: { (data, errorString) in
                 if errorString == nil {
                     item.image = data! as NSData
@@ -107,51 +96,51 @@ class ToEatTableViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.itemLabel.text = item.name
         return cell
     }
- 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if let context = fetchedResultsController?.managedObjectContext, let item = fetchedResultsController?.object(at: indexPath) as? Item, editingStyle == .delete {
+            context.delete(item)
+            try! context.save()
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        toEatTableView.beginUpdates()
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        
+        let set = IndexSet(integer: sectionIndex)
+        
+        switch (type) {
+        case .insert:
+            toEatTableView.insertSections(set, with: .fade)
+        case .delete:
+            toEatTableView.deleteSections(set, with: .fade)
+        default:
+            // irrelevant in our case
+            break
+        }
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch(type) {
+        case .insert:
+            toEatTableView.insertRows(at: [newIndexPath!], with: .fade)
+        case .delete:
+            toEatTableView.deleteRows(at: [indexPath!], with: .fade)
+        case .update:
+            toEatTableView.reloadRows(at: [indexPath!], with: .fade)
+        case .move:
+            toEatTableView.deleteRows(at: [indexPath!], with: .fade)
+            toEatTableView.insertRows(at: [newIndexPath!], with: .fade)
+        }
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        toEatTableView.endUpdates()
     }
-    */
 
 }
