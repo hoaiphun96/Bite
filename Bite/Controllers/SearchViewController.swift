@@ -144,12 +144,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedItem = items[(indexPath as NSIndexPath).row]
         let cell = tableView.cellForRow(at: indexPath) as! ItemViewCell
-        cell.cellView.backgroundColor = UIColor.gray
+        cell.cellView.backgroundColor = UIColor(named: "DeepLight")
         performSegue(withIdentifier: "detailSegue", sender: self)
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ItemViewCell
-        cell.cellView.backgroundColor = UIColor(named: "Shade")
+        cell.cellView.backgroundColor = UIColor(named: "Light")
         
     }
     
