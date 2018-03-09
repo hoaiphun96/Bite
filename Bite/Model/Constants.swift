@@ -24,7 +24,7 @@ struct Constants {
         static let ApplicationID = "bc29c81f"
         static let APIKey = "fadec995b490ade258351633d5a90ba9"
         static let DisableJSONCallback = "1" /* 1 means "yes" */
-        static let SearchPhotosMethod = "Nutritionix.photos.search"
+        static let SearchInstantMethod = "search/instant"
    
     }
     
@@ -43,7 +43,7 @@ struct Constants {
         // MARK: Properties
         
         let name: String
-        let brand_name: String
+        let brand_name: String?
         let calories: Int?
         let image_url: String?
         let serving_unit: String?
@@ -55,8 +55,7 @@ struct Constants {
         // construct a TempItem from a dictionary
         init(dictionary: [String:AnyObject]) {
             name = dictionary["food_name"] as! String
-            brand_name = dictionary["brand_name"] as! String
-            //calories = dictionary["nf_calories"] as! Int
+            brand_name = dictionary["brand_name"] as? String
             calories = dictionary["nf_calories"] as? Int
             let pd = dictionary["photo"] as! [String: AnyObject]
             image_url = pd["thumb"] as? String
