@@ -18,11 +18,14 @@ public class Item: NSManagedObject {
             self.name = itemName
             self.brand_name = brandName
             //self.calories = Int32(calories)
-            self.calories = 0
+            //self.calories = (Int32(Int(String(describing: calories))))!
+            if calories != nil {
+                let c = NSNumber(value: calories!)
+                self.calories = Int32(truncating: c)
+            } 
             self.image_url = image_url
             self.serving_unit = serving_unit
             self.serving_quantity = serving_quantity
-            print("just created an entity")
         } else {
             fatalError("Unable to find Entity name")
         }

@@ -14,10 +14,12 @@ class ItemViewCell: UITableViewCell {
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemLabel: UILabel!
     
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        //cellView.backgroundColor.
     }
 
 }

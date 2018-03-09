@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SearchViewControllerDelegate {
-    func searchItems(_ searchViewController: SearchViewController, didPickMovie movie: Item?)
+    func searchItems(_ searchViewController: SearchViewController, didPickItem item: Item?)
 }
 
 class SearchViewController: UIViewController {
@@ -19,7 +19,7 @@ class SearchViewController: UIViewController {
     // the data for the table
     var items = [Constants.TempItem]()
     var selectedItem: Constants.TempItem?
-    // the delegate will typically be a view controller, waiting for the Movie Picker to return an movie
+    // the delegate will typically be a view controller, waiting for the Item Picker to return an movie
     var delegate: SearchViewControllerDelegate?
     
     // the most recent data download task. We keep a reference to it so that it can be canceled every time the search text changes
@@ -47,24 +47,13 @@ class SearchViewController: UIViewController {
     }
     
     private func cancel() {
-        delegate?.searchItems(self, didPickMovie: nil)
+        delegate?.searchItems(self, didPickItem: nil)
         logout()
     }
     
     func logout() {
         dismiss(animated: true, completion: nil)
     }
-   
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -117,14 +106,15 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         if let url = item.image_url {
             let _ = downloadImage(imagePath: url) { (data, errorString) in
                 if errorString == nil {
+                    self.items[(indexPath as NSIndexPath).row].image = UIImage(data: data!)
                     DispatchQueue.main.async {
-                        self.items[(indexPath as NSIndexPath).row].image = UIImage(data: data!)
-                        cell.itemImageView.image = item.image
-                        cell.itemImageView.layer.cornerRadius = cell.cellView.frame.height / 2
+                        cell.itemImageView.image = UIImage(data: data!)
                     }
                 }
             }
         }
+        cell.itemImageView.layer.cornerRadius = cell.itemImageView.frame.height / 2
+        cell.itemImageView.backgroundColor = UIColor.black
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -153,8 +143,14 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedItem = items[(indexPath as NSIndexPath).row]
-
+        let cell = tableView.cellForRow(at: indexPath) as! ItemViewCell
+        cell.cellView.backgroundColor = UIColor.gray
         performSegue(withIdentifier: "detailSegue", sender: self)
+    }
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! ItemViewCell
+        cell.cellView.backgroundColor = UIColor(named: "Shade")
+        
     }
     
     

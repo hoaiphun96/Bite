@@ -22,22 +22,22 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController!.navigationBar.topItem!.title = ""
         itemImageView.image = item.image
-        itemInfoLabel.text = "Name: \(item.brand_name) \nServing Quantity: \(item.serving_quantity ?? "NA")\nServing unit: \(item.serving_unit ?? "NA")"
+        itemImageView.backgroundColor = UIColor.black
+        itemImageView.layer.cornerRadius = itemImageView.frame.height / 2
+        itemInfoLabel.text = "Name: \(item.brand_name) \nServing Quantity: \(item.serving_quantity ?? "NA")\nServing unit: \(item.serving_unit ?? "NA") \nCalories: \(item.calories ?? 0)"
     }
     @IBAction func addToToEat(_ sender: Any) {
         let item = Item(itemName: self.item.name, brandName: self.item.brand_name, calories: self.item.calories, image_url: self.item.image_url, serving_quantity: self.item.serving_quantity, serving_unit: self.item.serving_unit, context: delegate.stack.context)
         item.toAvoid = false
         item.toEat = true
-        print("just added to eat")
         delegate.stack.save()
-        print("number of item in database \(delegate.stack.context.insertedObjects)")
+
     }
     
     @IBAction func addToToAvoid(_ sender: Any) {
         let item = Item(itemName: self.item.name, brandName: self.item.brand_name, calories: self.item.calories, image_url: self.item.image_url, serving_quantity: self.item.serving_quantity, serving_unit: self.item.serving_unit, context: delegate.stack.context)
         item.toAvoid = true
         item.toEat = false
-        print("just added to avoid")
         delegate.stack.save()
     }
 

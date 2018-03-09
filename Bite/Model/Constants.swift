@@ -44,7 +44,7 @@ struct Constants {
         
         let name: String
         let brand_name: String
-        let calories: Int
+        let calories: Int?
         let image_url: String?
         let serving_unit: String?
         let serving_quantity: String?
@@ -57,7 +57,7 @@ struct Constants {
             name = dictionary["food_name"] as! String
             brand_name = dictionary["brand_name"] as! String
             //calories = dictionary["nf_calories"] as! Int
-            calories = 10
+            calories = dictionary["nf_calories"] as? Int
             let pd = dictionary["photo"] as! [String: AnyObject]
             image_url = pd["thumb"] as? String
             serving_unit = dictionary["serving_unit"] as? String

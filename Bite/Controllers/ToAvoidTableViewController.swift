@@ -83,9 +83,8 @@ class ToAvoidTableViewController: UIViewController, UITableViewDelegate, UITable
         } else { //else download new image
             let ai = ActivityIndicator()
             cell.itemImageView.image = nil
-            DispatchQueue.main.sync {
-                ai.showLoader(cell.imageView!)
-            }
+            ai.showLoader(cell.imageView!)
+            
             let _ = item.downloadImage(imagePath: item.image_url!, completionHandler: { (data, errorString) in
                 if errorString == nil {
                     item.image = data! as NSData
@@ -100,7 +99,7 @@ class ToAvoidTableViewController: UIViewController, UITableViewDelegate, UITable
             })
         }
         cell.itemLabel.text = item.name
-        cell.itemImageView.layer.cornerRadius = cell.cellView.frame.height / 2
+        cell.itemImageView.layer.cornerRadius = cell.itemImageView.frame.height / 2
         return cell
     }
 
