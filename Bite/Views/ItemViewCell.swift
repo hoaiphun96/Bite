@@ -19,7 +19,11 @@ class ItemViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-        //cellView.backgroundColor.
+        if selected == true {
+            cellView.backgroundColor = UIColor(named: "DeepLight")
+        } else {
+            cellView.backgroundColor = UIColor(named: "Light")
+        }
     }
 
 }
