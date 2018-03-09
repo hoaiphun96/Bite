@@ -47,13 +47,29 @@ public class SearchFood {
                     completionHandlerForGetFood(nil, "Could not parse the data as JSON: '\(data)'")
                     return
                 }
-                
+                var tempItems = [Constants.TempItem]()
                 if let brandedDictionary = parsedResult["branded"] as? [[String:AnyObject]] {
-                    let tempItems = Constants.TempItem.itemsFromResults(brandedDictionary)
-                    completionHandlerForGetFood(tempItems, nil)
+                    let brandedItems = Constants.TempItem.itemsFromResults(brandedDictionary)
+                    //completionHandlerForGetFood(tempItems, nil)
+                    tempItems = tempItems + brandedItems
                    
                 } else {
-                    completionHandlerForGetFood(nil, "Cannot find key branded in the dictionary")
+                    //completionHandlerForGetFood(nil, "Cannot find key branded in the dictionary")
+                    print("Cannot find key branded in dictionary")
+                }
+                if let commonDictionary = parsedResult["common"] as? [[String:AnyObject]] {
+                    let commonItems = Constants.TempItem.itemsFromResults(commonDictionary)
+                    //completionHandlerForGetFood(tempItems, nil)
+                    tempItems = tempItems + commonItems
+                }
+                else {
+                    //completionHandlerForGetFood(nil, "Cannot find key branded in the dictionary")
+                    print("Cannot find key common in dictionary")
+                }
+                if tempItems.count == 0 {
+                    completionHandlerForGetFood(nil, "Cannot find any food")
+                } else {
+                    completionHandlerForGetFood(tempItems, nil)
                 }
             }
         }
