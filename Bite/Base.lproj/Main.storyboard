@@ -93,6 +93,7 @@
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" name="Light"/>
+                                                    <color key="tintColor" name="DeepLight"/>
                                                     <constraints>
                                                         <constraint firstItem="ZcB-Gq-Qz1" firstAttribute="top" secondItem="Fqh-T4-zDh" secondAttribute="top" constant="8" id="EH5-Ih-cMf"/>
                                                         <constraint firstItem="ZcB-Gq-Qz1" firstAttribute="leading" secondItem="G7H-DN-KOy" secondAttribute="trailing" constant="8" id="Hsm-wp-qlJ"/>
@@ -110,7 +111,10 @@
                                                 <constraint firstItem="Fqh-T4-zDh" firstAttribute="top" secondItem="aXG-YX-a6l" secondAttribute="top" constant="5" id="pRR-bi-d8F"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <accessibility key="accessibilityConfiguration" identifier="itemCell"/>
+                                        <color key="tintColor" name="DeepLight"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="itemCell">
+                                            <accessibilityTraits key="traits" none="YES"/>
+                                        </accessibility>
                                         <connections>
                                             <outlet property="cellView" destination="Fqh-T4-zDh" id="6Zn-mG-lpJ"/>
                                             <outlet property="itemImageView" destination="G7H-DN-KOy" id="KXf-g2-aqr"/>
@@ -141,7 +145,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="VIv-2d-fe7">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="bookmarks" id="J1u-Hf-0Jf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="J1u-Hf-0Jf">
                             <color key="tintColor" name="Light"/>
                             <connections>
                                 <action selector="openLogs:" destination="BYZ-38-t0r" id="1MA-c3-xn8"/>
@@ -176,8 +180,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5x-wS-sEj">
-                                <rect key="frame" x="63" y="374" width="249" height="143"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5x-wS-sEj">
+                                <rect key="frame" x="50" y="374" width="275" height="143"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -197,7 +201,8 @@
                                     <constraint firstAttribute="height" constant="50" id="VfC-9U-MbN"/>
                                     <constraint firstAttribute="width" constant="50" id="jYg-O6-fYC"/>
                                 </constraints>
-                                <state key="normal" image="icons8-healthy-food-50">
+                                <color key="tintColor" name="DeepLight"/>
+                                <state key="normal" image="icon8-heart-50">
                                     <color key="titleShadowColor" name="Dark"/>
                                 </state>
                                 <connections>
@@ -210,6 +215,7 @@
                                     <constraint firstAttribute="width" constant="50" id="nyK-3M-mVd"/>
                                     <constraint firstAttribute="height" constant="50" id="sFM-X6-AfP"/>
                                 </constraints>
+                                <color key="tintColor" name="DeepLight"/>
                                 <state key="normal" image="icons8-unavailable-50">
                                     <color key="titleShadowColor" name="Dark"/>
                                 </state>
@@ -221,13 +227,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="o5x-wS-sEj" firstAttribute="top" secondItem="paB-HX-pcV" secondAttribute="bottom" constant="20" id="4KK-f8-txq"/>
-                            <constraint firstItem="o5x-wS-sEj" firstAttribute="leading" secondItem="DVD-c0-viV" secondAttribute="leading" constant="63" id="6Oz-bV-Y62"/>
+                            <constraint firstItem="o5x-wS-sEj" firstAttribute="leading" secondItem="DVD-c0-viV" secondAttribute="leading" constant="50" id="6Oz-bV-Y62"/>
                             <constraint firstItem="paB-HX-pcV" firstAttribute="centerX" secondItem="DVD-c0-viV" secondAttribute="centerX" id="DvY-Cm-E5u"/>
                             <constraint firstItem="DVD-c0-viV" firstAttribute="bottom" secondItem="Rgw-GH-sOn" secondAttribute="bottom" constant="20" id="ETe-8l-rAI"/>
                             <constraint firstItem="DVD-c0-viV" firstAttribute="bottom" secondItem="Iqu-8G-WGr" secondAttribute="bottom" constant="20" id="LVh-LQ-UHc"/>
                             <constraint firstItem="Iqu-8G-WGr" firstAttribute="leading" secondItem="DVD-c0-viV" secondAttribute="leading" constant="63" id="Mzn-4t-KNQ"/>
                             <constraint firstItem="DVD-c0-viV" firstAttribute="trailing" secondItem="Rgw-GH-sOn" secondAttribute="trailing" constant="63" id="NJa-Fy-bgM"/>
-                            <constraint firstItem="DVD-c0-viV" firstAttribute="trailing" secondItem="o5x-wS-sEj" secondAttribute="trailing" constant="63" id="b4p-C1-5Tu"/>
+                            <constraint firstItem="DVD-c0-viV" firstAttribute="trailing" secondItem="o5x-wS-sEj" secondAttribute="trailing" constant="50" id="b4p-C1-5Tu"/>
                             <constraint firstItem="DVD-c0-viV" firstAttribute="bottom" secondItem="o5x-wS-sEj" secondAttribute="bottom" constant="150" id="mQi-44-M8i"/>
                             <constraint firstItem="paB-HX-pcV" firstAttribute="top" secondItem="DVD-c0-viV" secondAttribute="top" constant="40" id="pjy-XN-fff"/>
                         </constraints>
@@ -252,7 +258,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BST-X9-yp2">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BST-X9-yp2" userLabel="To Avoid Table View">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -328,7 +334,7 @@
                         <color key="badgeColor" name="Light"/>
                     </tabBarItem>
                     <connections>
-                        <outlet property="toAvoidTableView" destination="BST-X9-yp2" id="u3m-T4-rr4"/>
+                        <outlet property="toAvoidTableView" destination="BST-X9-yp2" id="Rx7-3G-wTr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fdo-Wy-fZW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -416,12 +422,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mtv-xi-3m7"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="icons8-healthy-food-50" selectedImage="icons8-healthy-food-50" id="VKo-FN-Q45">
+                    <tabBarItem key="tabBarItem" title="" image="icon8-heart-50" selectedImage="icon8-heart-50" id="VKo-FN-Q45">
                         <inset key="imageInsets" minX="3" minY="6" maxX="-3" maxY="-6"/>
                         <color key="badgeColor" name="Light"/>
                     </tabBarItem>
                     <connections>
-                        <outlet property="toEatTableView" destination="8Zs-8M-e2u" id="E0M-Bz-JnA"/>
+                        <outlet property="toEatTableView" destination="8Zs-8M-e2u" id="rE6-ra-dTP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0On-Kq-3NO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -451,11 +457,17 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon8-heart-50" width="50" height="50"/>
         <image name="icons8-back-50" width="50" height="50"/>
-        <image name="icons8-healthy-food-50" width="50" height="50"/>
         <image name="icons8-unavailable-50" width="50" height="50"/>
         <namedColor name="Dark">
             <color red="0.18431372549019609" green="0.14117647058823529" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="DeepLight">
+            <color red="0.85882352941176465" green="0.54117647058823526" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="DeepLight">
+            <color red="0.85882352941176465" green="0.54117647058823526" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Light">
             <color red="0.98039215686274506" green="0.78823529411764703" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
