@@ -180,12 +180,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5x-wS-sEj">
-                                <rect key="frame" x="50" y="374" width="275" height="143"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="paB-HX-pcV">
                                 <rect key="frame" x="62" y="104" width="250" height="250"/>
                                 <color key="backgroundColor" name="Dark"/>
@@ -223,18 +217,37 @@
                                     <action selector="addToToAvoid:" destination="l4C-Gb-rJw" eventType="touchUpInside" id="oFC-C8-0JA"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvs-ck-Qsl">
+                                <rect key="frame" x="50" y="374" width="275" height="203"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5x-wS-sEj">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="203"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="o5x-wS-sEj" firstAttribute="height" secondItem="vvs-ck-Qsl" secondAttribute="height" id="Nnx-OC-858"/>
+                                    <constraint firstItem="o5x-wS-sEj" firstAttribute="width" secondItem="vvs-ck-Qsl" secondAttribute="width" id="Szt-9Y-1Ii"/>
+                                    <constraint firstAttribute="trailing" secondItem="o5x-wS-sEj" secondAttribute="trailing" id="Z8x-4o-EQ6"/>
+                                    <constraint firstAttribute="bottom" secondItem="o5x-wS-sEj" secondAttribute="bottom" constant="20" id="d7V-h7-ND4"/>
+                                    <constraint firstItem="o5x-wS-sEj" firstAttribute="leading" secondItem="vvs-ck-Qsl" secondAttribute="leading" id="oS1-xZ-0w9"/>
+                                    <constraint firstItem="o5x-wS-sEj" firstAttribute="top" secondItem="vvs-ck-Qsl" secondAttribute="top" id="qGQ-DA-EbW"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="o5x-wS-sEj" firstAttribute="top" secondItem="paB-HX-pcV" secondAttribute="bottom" constant="20" id="4KK-f8-txq"/>
-                            <constraint firstItem="o5x-wS-sEj" firstAttribute="leading" secondItem="DVD-c0-viV" secondAttribute="leading" constant="50" id="6Oz-bV-Y62"/>
+                            <constraint firstItem="DVD-c0-viV" firstAttribute="trailing" secondItem="vvs-ck-Qsl" secondAttribute="trailing" constant="50" id="25v-EC-gvd"/>
+                            <constraint firstItem="vvs-ck-Qsl" firstAttribute="top" secondItem="paB-HX-pcV" secondAttribute="bottom" constant="20" id="5TY-Cp-EWe"/>
                             <constraint firstItem="paB-HX-pcV" firstAttribute="centerX" secondItem="DVD-c0-viV" secondAttribute="centerX" id="DvY-Cm-E5u"/>
                             <constraint firstItem="DVD-c0-viV" firstAttribute="bottom" secondItem="Rgw-GH-sOn" secondAttribute="bottom" constant="20" id="ETe-8l-rAI"/>
                             <constraint firstItem="DVD-c0-viV" firstAttribute="bottom" secondItem="Iqu-8G-WGr" secondAttribute="bottom" constant="20" id="LVh-LQ-UHc"/>
                             <constraint firstItem="Iqu-8G-WGr" firstAttribute="leading" secondItem="DVD-c0-viV" secondAttribute="leading" constant="63" id="Mzn-4t-KNQ"/>
                             <constraint firstItem="DVD-c0-viV" firstAttribute="trailing" secondItem="Rgw-GH-sOn" secondAttribute="trailing" constant="63" id="NJa-Fy-bgM"/>
-                            <constraint firstItem="DVD-c0-viV" firstAttribute="trailing" secondItem="o5x-wS-sEj" secondAttribute="trailing" constant="50" id="b4p-C1-5Tu"/>
-                            <constraint firstItem="DVD-c0-viV" firstAttribute="bottom" secondItem="o5x-wS-sEj" secondAttribute="bottom" constant="150" id="mQi-44-M8i"/>
+                            <constraint firstItem="vvs-ck-Qsl" firstAttribute="leading" secondItem="DVD-c0-viV" secondAttribute="leading" constant="50" id="SZM-Tc-77y"/>
+                            <constraint firstItem="Iqu-8G-WGr" firstAttribute="top" secondItem="vvs-ck-Qsl" secondAttribute="bottom" constant="20" id="URk-a8-LQs"/>
                             <constraint firstItem="paB-HX-pcV" firstAttribute="top" secondItem="DVD-c0-viV" secondAttribute="top" constant="40" id="pjy-XN-fff"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DVD-c0-viV"/>
