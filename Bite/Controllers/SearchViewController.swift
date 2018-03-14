@@ -89,6 +89,11 @@ extension SearchViewController: UISearchBarDelegate {
             }
         }
     }
+    
+    // Dismiss keyboard
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
 }
 
 
