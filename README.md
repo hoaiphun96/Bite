@@ -1,5 +1,5 @@
 # Bite
-Bite is an iOS app that allows user to search for food items and their information, then add it to their favorite and dislike food lists
+Bite is an iOS app that allows user to search for food items and their information, then add them to their favorite and dislike food lists
 
 ## App Specifications
 Bite is built using the latest XCode 9.2 version and is compatible with iOS version 10.3 and beyond
@@ -8,7 +8,7 @@ Bite is built using the latest XCode 9.2 version and is compatible with iOS vers
 Bite allows the users to
 - Look up food items from Nutritionix database
 - View food items' information and nutrient values
-- Append and delete food items from favorite and dislike lists
+- Append and delete food items to/from favorite and dislike lists
 
 ## Views
 <img src="https://user-images.githubusercontent.com/26151559/37421718-0aa0d6f8-2788-11e8-8902-83135cc57462.png" width="200" height="360"> <img src="https://user-images.githubusercontent.com/26151559/37421732-100b724c-2788-11e8-9488-59b59f92b9b9.png" width="200" height="360"> <img src="https://user-images.githubusercontent.com/26151559/37421763-12cfa430-2788-11e8-9b7b-ecbb5cd68954.png" width="200" height="360"> 
