@@ -10,12 +10,6 @@
 		EA2CD8E32052302600F5C21D /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA2CD8E22052302600F5C21D /* Theme.xcassets */; };
 		EA2CD8E520523FB300F5C21D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA2CD8E420523FB300F5C21D /* Assets.xcassets */; };
 		EA499A002047084F00EEE17E /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4999FF2047084F00EEE17E /* ActivityIndicator.swift */; };
-		EA499A07204708C100EEE17E /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA499A01204708C100EEE17E /* Item+CoreDataClass.swift */; };
-		EA499A08204708C100EEE17E /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA499A02204708C100EEE17E /* Item+CoreDataProperties.swift */; };
-		EA499A09204708C100EEE17E /* ToAvoid+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA499A03204708C100EEE17E /* ToAvoid+CoreDataClass.swift */; };
-		EA499A0A204708C100EEE17E /* ToAvoid+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA499A04204708C100EEE17E /* ToAvoid+CoreDataProperties.swift */; };
-		EA499A0B204708C100EEE17E /* ToEat+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA499A05204708C100EEE17E /* ToEat+CoreDataClass.swift */; };
-		EA499A0C204708C100EEE17E /* ToEat+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA499A06204708C100EEE17E /* ToEat+CoreDataProperties.swift */; };
 		EA7CF7F92040792C0007763E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF7F82040792C0007763E /* AppDelegate.swift */; };
 		EA7CF7FE2040792C0007763E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA7CF7FC2040792C0007763E /* Main.storyboard */; };
 		EA7CF8012040792C0007763E /* Bite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF7FF2040792C0007763E /* Bite.xcdatamodeld */; };
@@ -28,18 +22,14 @@
 		EA7CF8202040A9760007763E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF81F2040A9760007763E /* SearchViewController.swift */; };
 		EA7CF83C204111F40007763E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF83B204111F40007763E /* CoreDataStack.swift */; };
 		EA7CF83F204116590007763E /* ItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF83E204116590007763E /* ItemViewCell.swift */; };
+		EAFEE0822058CE4600ABC5DC /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFEE0802058CE4600ABC5DC /* Item+CoreDataClass.swift */; };
+		EAFEE0832058CE4600ABC5DC /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFEE0812058CE4600ABC5DC /* Item+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EA2CD8E22052302600F5C21D /* Theme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Theme.xcassets; sourceTree = "<group>"; };
 		EA2CD8E420523FB300F5C21D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA4999FF2047084F00EEE17E /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
-		EA499A01204708C100EEE17E /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
-		EA499A02204708C100EEE17E /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		EA499A03204708C100EEE17E /* ToAvoid+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToAvoid+CoreDataClass.swift"; sourceTree = "<group>"; };
-		EA499A04204708C100EEE17E /* ToAvoid+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToAvoid+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		EA499A05204708C100EEE17E /* ToEat+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToEat+CoreDataClass.swift"; sourceTree = "<group>"; };
-		EA499A06204708C100EEE17E /* ToEat+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToEat+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EA7CF7F52040792C0007763E /* Bite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA7CF7F82040792C0007763E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA7CF7FD2040792C0007763E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -55,6 +45,9 @@
 		EA7CF82E20410BA30007763E /* Bite 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Bite 2.xcdatamodel"; sourceTree = "<group>"; };
 		EA7CF83B204111F40007763E /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		EA7CF83E204116590007763E /* ItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewCell.swift; sourceTree = "<group>"; };
+		EAFEE07F2058CDB300ABC5DC /* Bite 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Bite 3.xcdatamodel"; sourceTree = "<group>"; };
+		EAFEE0802058CE4600ABC5DC /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataClass.swift"; path = "../../Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EAFEE0812058CE4600ABC5DC /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataProperties.swift"; path = "../../Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,12 +118,8 @@
 		EA7CF82D204108920007763E /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				EA499A01204708C100EEE17E /* Item+CoreDataClass.swift */,
-				EA499A02204708C100EEE17E /* Item+CoreDataProperties.swift */,
-				EA499A03204708C100EEE17E /* ToAvoid+CoreDataClass.swift */,
-				EA499A04204708C100EEE17E /* ToAvoid+CoreDataProperties.swift */,
-				EA499A05204708C100EEE17E /* ToEat+CoreDataClass.swift */,
-				EA499A06204708C100EEE17E /* ToEat+CoreDataProperties.swift */,
+				EAFEE0802058CE4600ABC5DC /* Item+CoreDataClass.swift */,
+				EAFEE0812058CE4600ABC5DC /* Item+CoreDataProperties.swift */,
 				EA7CF83B204111F40007763E /* CoreDataStack.swift */,
 			);
 			path = CoreData;
@@ -220,18 +209,14 @@
 			files = (
 				EA7CF83C204111F40007763E /* CoreDataStack.swift in Sources */,
 				EA7CF81E204083870007763E /* SearchFood.swift in Sources */,
-				EA499A0A204708C100EEE17E /* ToAvoid+CoreDataProperties.swift in Sources */,
-				EA499A0B204708C100EEE17E /* ToEat+CoreDataClass.swift in Sources */,
 				EA7CF81220407D400007763E /* ToEatTableViewController.swift in Sources */,
-				EA499A08204708C100EEE17E /* Item+CoreDataProperties.swift in Sources */,
 				EA7CF8202040A9760007763E /* SearchViewController.swift in Sources */,
 				EA7CF81420407D510007763E /* ToAvoidTableViewController.swift in Sources */,
+				EAFEE0822058CE4600ABC5DC /* Item+CoreDataClass.swift in Sources */,
 				EA7CF83F204116590007763E /* ItemViewCell.swift in Sources */,
 				EA7CF81620407D8F0007763E /* DetailViewController.swift in Sources */,
+				EAFEE0832058CE4600ABC5DC /* Item+CoreDataProperties.swift in Sources */,
 				EA7CF81A20407DC70007763E /* Constants.swift in Sources */,
-				EA499A07204708C100EEE17E /* Item+CoreDataClass.swift in Sources */,
-				EA499A09204708C100EEE17E /* ToAvoid+CoreDataClass.swift in Sources */,
-				EA499A0C204708C100EEE17E /* ToEat+CoreDataProperties.swift in Sources */,
 				EA7CF8012040792C0007763E /* Bite.xcdatamodeld in Sources */,
 				EA7CF7F92040792C0007763E /* AppDelegate.swift in Sources */,
 				EA499A002047084F00EEE17E /* ActivityIndicator.swift in Sources */,
@@ -426,10 +411,11 @@
 		EA7CF7FF2040792C0007763E /* Bite.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				EAFEE07F2058CDB300ABC5DC /* Bite 3.xcdatamodel */,
 				EA7CF82E20410BA30007763E /* Bite 2.xcdatamodel */,
 				EA7CF8002040792C0007763E /* Bite.xcdatamodel */,
 			);
-			currentVersion = EA7CF82E20410BA30007763E /* Bite 2.xcdatamodel */;
+			currentVersion = EAFEE07F2058CDB300ABC5DC /* Bite 3.xcdatamodel */;
 			path = Bite.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
