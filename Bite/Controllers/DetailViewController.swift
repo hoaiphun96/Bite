@@ -15,7 +15,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var addToToEatButton: UIButton!
     @IBOutlet weak var itemInfoLabel: UILabel!
     @IBOutlet weak var itemImageView: UIImageView!
-    var item: Constants.TempItem!
+    var item: Client.Constants.TempItem!
     let delegate = UIApplication.shared.delegate as! AppDelegate
     var toEat = false
     var toAvoid = false
@@ -101,7 +101,7 @@ class DetailViewController: UIViewController {
     }
     
     // check if item is in core data
-    func isObjectInContext(item: Constants.TempItem) -> (Bool, [Item]?) {
+    func isObjectInContext(item: Client.Constants.TempItem) -> (Bool, [Item]?) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
         let namePredicate = NSPredicate(format: "name = %@", item.name)
         if let brand_name = item.brand_name {
