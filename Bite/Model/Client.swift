@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import UIKit
 
-public class Client {
+class Client {
     
     static let sharedInstance = Client()
 
