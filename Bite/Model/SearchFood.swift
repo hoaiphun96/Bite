@@ -50,12 +50,10 @@ public class SearchFood {
                 var tempItems = [Constants.TempItem]()
                 if let brandedDictionary = parsedResult["branded"] as? [[String:AnyObject]] {
                     let brandedItems = Constants.TempItem.itemsFromResults(brandedDictionary)
-                    //completionHandlerForGetFood(tempItems, nil)
                     tempItems = tempItems + brandedItems
                    
                 } else {
-                    //completionHandlerForGetFood(nil, "Cannot find key branded in the dictionary")
-                    print("Cannot find key branded in dictionary")
+                    debugPrint("Cannot find key branded in dictionary")
                 }
                 if let commonDictionary = parsedResult["common"] as? [[String:AnyObject]] {
                     let commonItems = Constants.TempItem.itemsFromResults(commonDictionary)
@@ -63,8 +61,7 @@ public class SearchFood {
                     tempItems = tempItems + commonItems
                 }
                 else {
-                    //completionHandlerForGetFood(nil, "Cannot find key branded in the dictionary")
-                    print("Cannot find key common in dictionary")
+                    debugPrint("Cannot find key common in dictionary")
                 }
                 if tempItems.count == 0 {
                     completionHandlerForGetFood(nil, "Cannot find any food")

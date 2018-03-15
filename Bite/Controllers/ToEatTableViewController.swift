@@ -40,8 +40,7 @@ class ToEatTableViewController: UIViewController, UITableViewDelegate, UITableVi
             do {
                 try fc.performFetch()
             } catch let e as NSError {
-                print("Error while trying to perform a search: \n\(e)\n\(String(describing: fetchedResultsController))")
-            }
+                debugPrint("Error while trying to perform a search: \n\(e)\n\(String(describing: fetchedResultsController))")            }
         }
     }
 

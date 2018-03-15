@@ -23,6 +23,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         itemInfoLabel.text = "Name: \(item.name) \nBrand: \(item.brand_name ?? "NA") \nServing Quantity: \(item.serving_quantity ?? "NA")\nServing unit: \(item.serving_unit ?? "NA") \nCalories: \(item.calories ?? 0)"
+        
+        // if item is already in core data, get value of toEat and toAvoid from core data
         let checkObject = isObjectInContext(item: self.item)
         if checkObject.0 {
             toAvoid = checkObject.1![0].toAvoid
@@ -38,6 +40,7 @@ class DetailViewController: UIViewController {
         itemImageView.layer.cornerRadius = itemImageView.frame.height / 2
         addToToAvoidButton.tintColor = UIColor(named: "DeepLight")
         addToToEatButton.tintColor = UIColor(named: "DeepLight")
+        // set image for to eat and to avoid button if item has already been marked before
         if toEat {
             addToToEatButton.setImage(UIImage(named: "icons8-heart-outline-filled-50"), for: .normal)
         }
@@ -97,6 +100,7 @@ class DetailViewController: UIViewController {
         }
     }
     
+    // check if item is in core data
     func isObjectInContext(item: Constants.TempItem) -> (Bool, [Item]?) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
         let namePredicate = NSPredicate(format: "name = %@", item.name)
@@ -116,7 +120,7 @@ class DetailViewController: UIViewController {
             }
             
         } catch {
-            print("SHIT JUST HAPPENED")
+            debugPrint("There was an error fetching item from core data")
         }
         return (false, nil)
     }
