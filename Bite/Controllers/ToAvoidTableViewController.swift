@@ -26,7 +26,6 @@ class ToAvoidTableViewController: UIViewController, UITableViewDelegate, UITable
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        toAvoidTableView.delegate = self
         let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
         fr.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         

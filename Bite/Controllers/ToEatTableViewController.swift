@@ -26,7 +26,6 @@ class ToEatTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        toEatTableView.delegate = self
         let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
         print(try! delegate.stack.context.count(for: fr))
         fr.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
