@@ -116,8 +116,6 @@ extension Client {
         guard let flags = getFlags() else { return false }
         let isReachable = flags.contains(.reachable)
         let needsConnection = flags.contains(.connectionRequired)
-        debugPrint(isReachable, needsConnection, isReachable && !needsConnection)
-        
         return (isReachable && !needsConnection)
     }
     
