@@ -17,8 +17,8 @@ class SearchViewController: UIViewController {
     // MARK: Properties
     
     // the data for the table
-    var items = [Constants.TempItem]()
-    var selectedItem: Constants.TempItem?
+    var items = [Client.Constants.TempItem]()
+    var selectedItem: Client.Constants.TempItem?
     // the delegate will typically be a view controller, waiting for the Item Picker to return an movie
     var delegate: SearchViewControllerDelegate?
     
@@ -80,10 +80,10 @@ extension SearchViewController: UISearchBarDelegate {
         if searchText == "" {
             return
         }
-        if SearchFood.sharedInstance.isInternetAvailable() == true {
+        if Client.sharedInstance.isInternetAvailable() {
             debugPrint("Searching")
         // new search
-            searchTask = SearchFood.sharedInstance.getFoodFromNutritionix(item: searchText) { (items, error) in
+            searchTask = Client.sharedInstance.getFoodFromNutritionix(item: searchText) { (items, error) in
                 self.searchTask = nil
                 if let items = items {
                     self.items = items
@@ -94,7 +94,7 @@ extension SearchViewController: UISearchBarDelegate {
             }
         } else {
             debugPrint("No network connection")
-            SearchFood.sharedInstance.showAlertMessage(title: "", message: "The internet connection appears to be offline", viewController: self)
+            Client.sharedInstance.showAlertMessage(title: "", message: "The internet connection appears to be offline", viewController: self)
         }
             
     }

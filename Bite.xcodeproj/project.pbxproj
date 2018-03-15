@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA130F09205A344E00AF23BE /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA130F08205A344E00AF23BE /* Client.swift */; };
 		EA2CD8E32052302600F5C21D /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA2CD8E22052302600F5C21D /* Theme.xcassets */; };
 		EA2CD8E520523FB300F5C21D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA2CD8E420523FB300F5C21D /* Assets.xcassets */; };
 		EA499A002047084F00EEE17E /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4999FF2047084F00EEE17E /* ActivityIndicator.swift */; };
@@ -18,7 +19,6 @@
 		EA7CF81420407D510007763E /* ToAvoidTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF81320407D510007763E /* ToAvoidTableViewController.swift */; };
 		EA7CF81620407D8F0007763E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF81520407D8F0007763E /* DetailViewController.swift */; };
 		EA7CF81A20407DC70007763E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF81920407DC70007763E /* Constants.swift */; };
-		EA7CF81E204083870007763E /* SearchFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF81D204083870007763E /* SearchFood.swift */; };
 		EA7CF8202040A9760007763E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF81F2040A9760007763E /* SearchViewController.swift */; };
 		EA7CF83C204111F40007763E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF83B204111F40007763E /* CoreDataStack.swift */; };
 		EA7CF83F204116590007763E /* ItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CF83E204116590007763E /* ItemViewCell.swift */; };
@@ -27,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA130F08205A344E00AF23BE /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		EA2CD8E22052302600F5C21D /* Theme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Theme.xcassets; sourceTree = "<group>"; };
 		EA2CD8E420523FB300F5C21D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA4999FF2047084F00EEE17E /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -40,7 +41,6 @@
 		EA7CF81320407D510007763E /* ToAvoidTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToAvoidTableViewController.swift; sourceTree = "<group>"; };
 		EA7CF81520407D8F0007763E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EA7CF81920407DC70007763E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		EA7CF81D204083870007763E /* SearchFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFood.swift; sourceTree = "<group>"; };
 		EA7CF81F2040A9760007763E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		EA7CF82E20410BA30007763E /* Bite 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Bite 2.xcdatamodel"; sourceTree = "<group>"; };
 		EA7CF83B204111F40007763E /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -98,8 +98,8 @@
 		EA7CF81720407DA20007763E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EA130F08205A344E00AF23BE /* Client.swift */,
 				EA7CF81920407DC70007763E /* Constants.swift */,
-				EA7CF81D204083870007763E /* SearchFood.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -208,13 +208,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA7CF83C204111F40007763E /* CoreDataStack.swift in Sources */,
-				EA7CF81E204083870007763E /* SearchFood.swift in Sources */,
 				EA7CF81220407D400007763E /* ToEatTableViewController.swift in Sources */,
 				EA7CF8202040A9760007763E /* SearchViewController.swift in Sources */,
 				EA7CF81420407D510007763E /* ToAvoidTableViewController.swift in Sources */,
 				EAFEE0822058CE4600ABC5DC /* Item+CoreDataClass.swift in Sources */,
 				EA7CF83F204116590007763E /* ItemViewCell.swift in Sources */,
 				EA7CF81620407D8F0007763E /* DetailViewController.swift in Sources */,
+				EA130F09205A344E00AF23BE /* Client.swift in Sources */,
 				EAFEE0832058CE4600ABC5DC /* Item+CoreDataProperties.swift in Sources */,
 				EA7CF81A20407DC70007763E /* Constants.swift in Sources */,
 				EA7CF8012040792C0007763E /* Bite.xcdatamodeld in Sources */,
