@@ -10,9 +10,9 @@ import Foundation
 import CoreData
 import UIKit
 
-public class SearchFood {
+public class Client {
     
-    static let sharedInstance = SearchFood()
+    static let sharedInstance = Client()
 
     // MARK: Make Network Request
     
@@ -109,25 +109,50 @@ public class SearchFood {
 }
 
 import SystemConfiguration
-extension SearchFood {
+extension Client {
     // check for network connection
+    // Credit to https://stackoverflow.com/questions/25623272/how-to-use-scnetworkreachability-in-swift
     func isInternetAvailable() -> Bool {
+        guard let flags = getFlags() else { return false }
+        let isReachable = flags.contains(.reachable)
+        let needsConnection = flags.contains(.connectionRequired)
+        debugPrint(isReachable, needsConnection, isReachable && !needsConnection)
+        
+        return (isReachable && !needsConnection)
+    }
+    
+    func getFlags() -> SCNetworkReachabilityFlags? {
+        guard let reachability = ipv4Reachability() ?? ipv6Reachability() else {
+            return nil
+        }
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(reachability, &flags) {
+            return nil
+        }
+        return flags
+    }
+    
+    func ipv6Reachability() -> SCNetworkReachability? {
+        var zeroAddress = sockaddr_in6()
+        zeroAddress.sin6_len = UInt8(MemoryLayout<sockaddr_in>.size)
+        zeroAddress.sin6_family = sa_family_t(AF_INET6)
+        
+        return withUnsafePointer(to: &zeroAddress, {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
+                SCNetworkReachabilityCreateWithAddress(nil, $0)
+            }
+        })
+    }
+    
+    func ipv4Reachability() -> SCNetworkReachability? {
         var zeroAddress = sockaddr_in()
-        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_len = UInt8(MemoryLayout<sockaddr_in>.size)
         zeroAddress.sin_family = sa_family_t(AF_INET)
         
-        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
-            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
-                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+        return withUnsafePointer(to: &zeroAddress, {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
+                SCNetworkReachabilityCreateWithAddress(nil, $0)
             }
-        }
-        
-        var flags = SCNetworkReachabilityFlags()
-        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
-            return false
-        }
-        let isReachable = flags.contains(.reachable)
-        //let needsConnection = flags.contains(.connectionRequired)
-        return !isReachable
+        })
     }
 }
