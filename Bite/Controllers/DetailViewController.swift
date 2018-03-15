@@ -22,8 +22,13 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configUI()
         itemInfoLabel.text = "Name: \(item.name) \nBrand: \(item.brand_name ?? "NA") \nServing Quantity: \(item.serving_quantity ?? "NA")\nServing unit: \(item.serving_unit ?? "NA") \nCalories: \(item.calories ?? 0)"
+        let checkObject = isObjectInContext(item: self.item)
+        if checkObject.0 {
+            toAvoid = checkObject.1![0].toAvoid
+            toEat = checkObject.1![0].toEat
+        }
+        configUI()
     }
     
     func configUI() {
@@ -33,6 +38,12 @@ class DetailViewController: UIViewController {
         itemImageView.layer.cornerRadius = itemImageView.frame.height / 2
         addToToAvoidButton.tintColor = UIColor(named: "DeepLight")
         addToToEatButton.tintColor = UIColor(named: "DeepLight")
+        if toEat {
+            addToToEatButton.setImage(UIImage(named: "icons8-heart-outline-filled-50"), for: .normal)
+        }
+        if toAvoid {
+            addToToAvoidButton.setImage(UIImage(named: "icons8-unavailable-filled-50"), for: .normal)
+        }
     }
     @IBAction func addToToEat(_ sender: Any) {
         if toEat == false {
