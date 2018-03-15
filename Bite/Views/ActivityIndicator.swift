@@ -16,7 +16,7 @@ class ActivityIndicator {
     private func setupLoader() {
         removeLoader()
         activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = .gray
+        activityIndicator.activityIndicatorViewStyle = .white
     }
     
     //MARK: - Public Methods -
@@ -24,7 +24,7 @@ class ActivityIndicator {
         setupLoader()
         DispatchQueue.main.async {
             self.blurView.frame = holdingView.bounds
-            self.blurView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+            self.blurView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
             self.activityIndicator.center = holdingView.center
             self.activityIndicator.startAnimating()
             self.blurView.addSubview(self.activityIndicator)
