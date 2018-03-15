@@ -17,6 +17,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var itemImageView: UIImageView!
     var item: Constants.TempItem!
     let delegate = UIApplication.shared.delegate as! AppDelegate
+    var toEat = false
+    var toAvoid = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,34 +35,54 @@ class DetailViewController: UIViewController {
         addToToEatButton.tintColor = UIColor(named: "DeepLight")
     }
     @IBAction func addToToEat(_ sender: Any) {
-        let checkObject = isObjectInContext(item: self.item)
-        if !checkObject.0 {
-        let item = Item(itemName: self.item.name, brandName: self.item.brand_name, calories: self.item.calories, image_url: self.item.image_url, serving_quantity: self.item.serving_quantity, serving_unit: self.item.serving_unit, context: delegate.stack.context)
-        item.toAvoid = false
-        item.toEat = true
-        delegate.stack.save()
+        if toEat == false {
+            self.addToToEatButton.setImage(UIImage(named: "icons8-heart-outline-filled-50"), for: .normal)
+            self.addToToAvoidButton.setImage(UIImage(named: "icons8-unavailable-50"), for: .normal)
+            self.toEat = true
+            self.toAvoid = false
         } else {
-            if checkObject.1![0].toAvoid == true {
-                checkObject.1![0].toAvoid = false
-                checkObject.1![0].toEat = true
-                delegate.stack.save()
-            }
+            self.addToToEatButton.setImage(UIImage(named: "icon8-heart-50"), for: .normal)
+            self.toEat = false
+        }
+        let checkObject = isObjectInContext(item: self.item)
+        
+        // if item is not in core data context, then create an item and save to core data
+        if !checkObject.0 {
+            let item = Item(itemName: self.item.name, brandName: self.item.brand_name, calories: self.item.calories, image_url: self.item.image_url, serving_quantity: self.item.serving_quantity, serving_unit: self.item.serving_unit, context: delegate.stack.context)
+            item.toAvoid = toAvoid
+            item.toEat = toEat
+            delegate.stack.save()
+        } else {
+            // else change toAvoid and toEat attribute to current settings
+            checkObject.1![0].toAvoid = toAvoid
+            checkObject.1![0].toEat = toEat
+            self.delegate.stack.save()
         }
     }
     
     @IBAction func addToToAvoid(_ sender: Any) {
+        if toAvoid == false {
+            self.addToToAvoidButton.setImage(UIImage(named: "icons8-unavailable-filled-50"), for: .normal)
+            self.addToToEatButton.setImage(UIImage(named: "icon8-heart-50"), for: .normal)
+            self.toAvoid = true
+            self.toEat = false
+        } else {
+            self.addToToAvoidButton.setImage(UIImage(named: "icons8-unavailable-50"), for: .normal)
+            self.toAvoid = false
+        }
         let checkObject = isObjectInContext(item: self.item)
+        
+        // if item is not in core data context, then create an item and save to core data
         if !checkObject.0 {
         let item = Item(itemName: self.item.name, brandName: self.item.brand_name, calories: self.item.calories, image_url: self.item.image_url, serving_quantity: self.item.serving_quantity, serving_unit: self.item.serving_unit, context: delegate.stack.context)
-        item.toAvoid = true
-        item.toEat = false
-        delegate.stack.save()
+            item.toAvoid = toAvoid
+            item.toEat = toEat
+            delegate.stack.save()
         } else {
-            if checkObject.1![0].toAvoid == false {
-                checkObject.1![0].toAvoid = true
-                checkObject.1![0].toEat = false
-                self.delegate.stack.save()
-            }
+        // else change toAvoid and toEat attribute to current settings
+            checkObject.1![0].toAvoid = toAvoid
+            checkObject.1![0].toEat = toEat
+            self.delegate.stack.save()
         }
     }
     
