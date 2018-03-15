@@ -76,21 +76,25 @@ class ToAvoidTableViewController: UIViewController, UITableViewDelegate, UITable
             let p = UIImage(data: item.image! as Data)
             cell.itemImageView.image = p
         } else { //else download new image
-            let ai = ActivityIndicator()
-            cell.itemImageView.image = nil
-            ai.showLoader(cell.itemImageView)
-            let _ = item.downloadImage(imagePath: item.image_url!, completionHandler: { (data, errorString) in
-                if errorString == nil {
-                    item.image = data! as NSData
-                    self.delegate.stack.save()
-                    DispatchQueue.main.async {
+            if let url = item.image_url {
+                let ai = ActivityIndicator()
+                ai.showLoader(cell.itemImageView)
+                cell.itemImageView.image = nil
+                let _ = item.downloadImage(imagePath: url, completionHandler: { (data, errorString) in
+                    if errorString == nil {
+                        item.image = data! as NSData
+                        self.delegate.stack.save()
+                        DispatchQueue.main.async {
+                            ai.removeLoader()
+                            cell.itemImageView.image = UIImage(data: data!)
+                        }
+                    } else {
                         ai.removeLoader()
-                        cell.itemImageView.image = UIImage(data: data!)
                     }
-                } else {
-                    ai.removeLoader()
-                }
-            })
+                })
+            } else {
+                cell.itemImageView.image = nil
+            }
         }
         cell.itemImageView.layer.cornerRadius = cell.itemImageView.frame.height / 2
         cell.itemLabel.text = item.name
