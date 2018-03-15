@@ -131,6 +131,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                     ai.removeLoader()
                 }
             }
+        } else {
+            cell.itemImageView.image = nil
         }
         cell.itemImageView.layer.cornerRadius = cell.itemImageView.frame.height / 2
         cell.itemImageView.backgroundColor = UIColor.black
