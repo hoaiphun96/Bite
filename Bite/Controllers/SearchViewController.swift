@@ -118,12 +118,17 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         cell.itemLabel.text = item.name
         cell.cellView.layer.cornerRadius = cell.cellView.frame.height / 2
         if let url = item.image_url {
+            let ai = ActivityIndicator()
+            ai.showLoader(cell.itemImageView)
             let _ = downloadImage(imagePath: url) { (data, errorString) in
                 if errorString == nil {
                     self.items[(indexPath as NSIndexPath).row].image = UIImage(data: data!)
                     DispatchQueue.main.async {
+                        ai.removeLoader()
                         cell.itemImageView.image = UIImage(data: data!)
                     }
+                } else {
+                    ai.removeLoader()
                 }
             }
         }
