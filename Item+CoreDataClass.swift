@@ -17,8 +17,6 @@ public class Item: NSManagedObject {
             self.init(entity: ent, insertInto: context)
             self.name = itemName
             self.brand_name = brandName
-            //self.calories = Int32(calories)
-            //self.calories = (Int32(Int(String(describing: calories))))!
             if calories != nil {
                 let c = NSNumber(value: calories!)
                 self.calories = Int32(truncating: c)
