@@ -30,6 +30,9 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Set up Network Activity Indicator
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
         // configure tap recognizer
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(_:)))
         tapRecognizer.numberOfTapsRequired = 1
@@ -77,17 +80,23 @@ extension SearchViewController: UISearchBarDelegate {
         if searchText == "" {
             return
         }
-        
+        if SearchFood.sharedInstance.isInternetAvailable() == true {
+            debugPrint("Searching")
         // new search
-        searchTask = SearchFood.sharedInstance.getFoodFromNutritionix(item: searchText) { (items, error) in
-            self.searchTask = nil
-            if let items = items {
-                self.items = items
-                DispatchQueue.main.async {
-                    self.itemTableView!.reloadData()
+            searchTask = SearchFood.sharedInstance.getFoodFromNutritionix(item: searchText) { (items, error) in
+                self.searchTask = nil
+                if let items = items {
+                    self.items = items
+                    DispatchQueue.main.async {
+                        self.itemTableView!.reloadData()
+                    }
                 }
             }
+        } else {
+            debugPrint("No network connection")
+            SearchFood.sharedInstance.showAlertMessage(title: "", message: "The internet connection appears to be offline", viewController: self)
         }
+            
     }
     
     // Dismiss keyboard
