@@ -7,7 +7,7 @@ Bite is built using the latest XCode 9.2 version and is compatible with iOS vers
 ## Features
 Bite allows the users to
 - Look up food items from Nutritionix database
-- View food items' information and nutrient values
+- View food items' information and nutritional values
 - Append and delete food items to/from favorite and dislike lists
 
 ## Views
@@ -24,6 +24,7 @@ Bite allows the users to
 - Data Persistence
 - Grand Central Dispatch
 - Table and collection views
+- Xcode
 
  ## License
 This project is licensed under the MIT License
